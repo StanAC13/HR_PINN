@@ -5,17 +5,7 @@ Observation model (Kennedy-O'Hagan with the physics closure as the mean):
     y_i = ln n_obs,i = ln n_phys(x_i; xi) + delta(x_i) + eps_i,
     delta ~ GP(0, s_gp^2 k_SE(x, x'; ell)),      eps_i ~ N(0, sigma_obs,i^2)
 
-with x = (ln(1 um / r_c), ln Ja) parameter-free state coordinates.  The GP is
-marginalised analytically, so the sampled parameters are xi (7) and ln s_gp (1).
-Far from data the discrepancy reverts to zero and the prediction to the physics
-prior, with variance bounded by s_gp^2: this is what "physics prior rather than
-pure data" means operationally.
-
-Sampling: adaptive Metropolis (Haario et al. 2001) in a logit-transformed
-unbounded space, started from a multi-start MAP search.
-
-Pure-data baselines (quadratic in ln dT, zero-mean and constant-mean GPs) are
-provided to show what happens without the physics prior.
+with x = (ln(1 um / r_c), ln Ja) 
 """
 from __future__ import annotations
 
